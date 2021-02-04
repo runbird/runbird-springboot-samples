@@ -17,7 +17,7 @@
         <java.version>12</java.version>
         <maven.compiler.source>12</maven.compiler.source>
         <maven.compiler.target>12</maven.compiler.target>
-        <spring-boot.version>2.2.1.RELEASE</spring-boot.version>
+        <spring-boot.version>2.2.6.RELEASE</spring-boot.version>
     </properties>
 
     <scm>
