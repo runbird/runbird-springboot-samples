@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.scy</groupId>
-    <artifactId>spring-boot-samples</artifactId>
+    <artifactId>runbird-springboot-samples</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
@@ -14,9 +14,9 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>12</java.version>
-        <maven.compiler.source>12</maven.compiler.source>
-        <maven.compiler.target>12</maven.compiler.target>
+        <java.version>11</java.version>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
         <spring-boot.version>2.2.1.RELEASE</spring-boot.version>
     </properties>
 
@@ -34,10 +34,11 @@
     </developers>
 
     <modules>
-        <module>spring-boot-configuration</module>
-        <module>spring-boot-redis</module>
-        <module>spring-boot-global</module>
-        <module>spring-boot-mq</module>
+        <module>springboot-configuration</module>
+        <module>springboot-redis</module>
+        <module>springboot-global</module>
+        <module>springboot-mq</module>
+        <module>springboot-downgration</module>
     </modules>
 
     <dependencyManagement>
