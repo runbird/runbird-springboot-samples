@@ -44,7 +44,7 @@
         <reflections.version>0.9.11</reflections.version>
         <lombok.version>1.18.10</lombok.version>
         <springboot-version>2.2.1.RELEASE</springboot-version>
-        <guava.verion>28.1-jre</guava.verion>
+        <guava.verion>29.0-jre</guava.verion>
     </properties>
 
     <dependencyManagement>
