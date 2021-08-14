@@ -10,16 +10,6 @@
     <packaging>pom</packaging>
 
     <name>RunBird Spring Boot 示例代码</name>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>11</java.version>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-        <spring-boot.version>2.2.1.RELEASE</spring-boot.version>
-    </properties>
-
     <scm>
         <url></url>
     </scm>
@@ -35,11 +25,27 @@
 
     <modules>
         <module>springboot-configuration</module>
-        <module>springboot-redis</module>
-        <module>springboot-global</module>
-        <module>springboot-mq</module>
         <module>springboot-downgration</module>
+        <module>springboot-easypoi</module>
+        <module>springboot-mq</module>
+        <module>springboot-redis</module>
+        <module>springboot-security-jwt</module>
+        <module>springboot-web</module>
+        <module>springboot-webflux</module>
     </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>11</java.version>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <spring-boot.version>2.2.1.RELEASE</spring-boot.version>
+        <reflections.version>0.9.11</reflections.version>
+        <lombok.version>1.18.10</lombok.version>
+        <springboot-version>2.2.1.RELEASE</springboot-version>
+        <guava.verion>28.1-jre</guava.verion>
+    </properties>
 
     <dependencyManagement>
         <dependencies>
@@ -50,6 +56,27 @@
                 <version>${spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <!-- 可以获取指定包下的类-->
+            <dependency>
+                <groupId>org.reflections</groupId>
+                <artifactId>reflections</artifactId>
+                <version>${reflections.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-aop</artifactId>
+                <version>${springboot-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.verion}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -68,5 +95,36 @@
             </plugin>
         </plugins>
     </build>
+
+
+    <!-- 阿里云maven仓库 -->
+    <repositories>
+        <repository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>spring-libs-snapshot</id>
+            <name>Spring Snapshot Repository</name>
+            <url>https://repo.spring.io/libs-milestone</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 
 </project>
