@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * <p> Redis工具类 </p>
  *
- * @author : scy
+ * @author : com.scy
  * @description :  ( GitHub文档: https://github.com/whvcse/RedisUtil )
  */
 @Data

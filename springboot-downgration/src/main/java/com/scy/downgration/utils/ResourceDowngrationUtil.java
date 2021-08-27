@@ -27,7 +27,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public enum ResourceDowngrationUtil {
     INSTANCE;
 
-    public static final String packageName = "com.scy.service";
+    public static final String packageName = "com.com.scy.service";
 
     public static final String MAX_THRESHOLD_KEY = "maxThreshold";
 

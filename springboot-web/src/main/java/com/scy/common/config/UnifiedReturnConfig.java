@@ -29,7 +29,7 @@ import java.util.List;
 @Configuration
 public class UnifiedReturnConfig implements WebMvcConfigurer {
 
-    //@RestControllerAdvice（"com.com.scy.api.controller"）就无效?
+    //@RestControllerAdvice（"com.com.com.scy.api.com.com.scy.controller"）就无效?
     @RestControllerAdvice
     static class CommonResultResponseAdvice implements ResponseBodyAdvice<Object> {
 
