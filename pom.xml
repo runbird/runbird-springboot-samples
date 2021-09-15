@@ -32,6 +32,7 @@
         <module>springboot-security-jwt</module>
         <module>springboot-web</module>
         <module>springboot-webflux</module>
+        <module>springboot-reactivestream2</module>
     </modules>
 
     <properties>
