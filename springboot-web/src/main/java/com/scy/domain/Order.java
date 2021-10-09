@@ -34,4 +34,17 @@ public class Order {
         this.createTime = createTime;
         this.totalPrice = totalPrice;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Order{");
+        sb.append("id=").append(id);
+        sb.append(", customer=").append(customer);
+        sb.append(", deliveryAddress=").append(deliveryAddress);
+        sb.append(", orderItems=").append(orderItems);
+        sb.append(", createTime=").append(createTime);
+        sb.append(", totalPrice=").append(totalPrice);
+        sb.append('}');
+        return sb.toString();
+    }
 }

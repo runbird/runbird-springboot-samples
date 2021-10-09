@@ -23,4 +23,5 @@ public class BindingController {
         log.info(localDateTime.toString());
         return localDateTime.toString();
     }
+
 }

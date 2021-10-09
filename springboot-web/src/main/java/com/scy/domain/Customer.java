@@ -27,4 +27,16 @@ public class Customer {
         this.phone = phone;
         this.addresses = addresses;
     }
+
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Customer{");
+        sb.append("id=").append(id);
+        sb.append(", name='").append(name).append('\'');
+        sb.append(", phone='").append(phone).append('\'');
+        sb.append(", addresses=").append(addresses);
+        sb.append('}');
+        return sb.toString();
+    }
 }

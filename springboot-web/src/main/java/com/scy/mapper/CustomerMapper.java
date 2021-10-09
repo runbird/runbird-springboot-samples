@@ -3,7 +3,7 @@ package com.scy.mapper;
 import com.scy.domain.Customer;
 
 /**
- * 类名： CustomerMapper <br>
+ * 类名： CustomerMapper.xml <br>
  * 描述：TODO <br>
  * 创建日期： 2021/9/15 <br>
  *

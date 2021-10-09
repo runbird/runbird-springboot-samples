@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.scy.mapper.OrderMapper">
+    <resultMap id="orderMap" type="com.scy.domain.Order">
+        <id property="id" column="id"/>
+        <result property="createTime" column="create_time"/>
+        <association property="customer" javaType="com.scy.domain.Customer">
+            <id property="id" column="customer_id"/>
+        </association>
+        <association property="deliveryAddress" javaType="com.scy.domain.Address">
+            <id property="id" column="address_id"/>
+        </association>
+        <!-- 这里并没有映射orderItems集合-->
+    </resultMap>
+
+    <select id="find" resultMap="orderMap">
+        SELECT *
+        FROM t_order
+        WHERE id = #{id:INTEGER}
+    </select>
+
+    <select id="findByCustomerId" resultMap="orderMap">
+        SELECT *
+        FROM t_order
+        WHERE customer_id = #{id}
+          and create_time <![CDATA[ >= ]]> #{startTime}
+          and create_time <![CDATA[ <= ]]> #{endTime}
+    </select>
+
+    <insert id="save" keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO t_order(address_id, customer_id, create_time)
+        VALUES (#{deliveryAddress.id}, #{address.id}, #{createTime})
+    </insert>
+</mapper>

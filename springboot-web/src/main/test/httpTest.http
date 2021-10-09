@@ -1,0 +1,7 @@
+GET http://localhost:8080/users/async
+
+###
+
+GET http://localhost:8080/users/async2
+
+###
