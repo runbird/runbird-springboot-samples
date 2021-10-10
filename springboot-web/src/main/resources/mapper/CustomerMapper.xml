@@ -3,8 +3,8 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.scy.mapper.CustomerMapper">
-    <!-- 定义映射规则 -->
-    <resultMap id="customerSimpleMap" type="com.scy.domain.Customer">
+    <!-- 定义映射规则 这里使用了mybatis-config.xml定义了别名,原理是Sqlsession设置了Configuration -->
+    <resultMap id="customerSimpleMap" type="Customer">
         <!--  主键映射 -->
         <id property="id" column="id"/>
         <!--  属性映射 -->
@@ -12,14 +12,14 @@
         <result property="phone" column="phone"/>
     </resultMap>
 
-    <resultMap id="customerMap" type="com.scy.domain.Customer">
+    <resultMap id="customerMap" type="Customer">
         <!--  主键映射 -->
         <id property="id" column="id"/>
         <!--  属性映射 -->
         <result property="name" column="name"/>
         <result property="phone" column="phone"/>
         <!-- 映射addresses集合 -->
-        <collection property="addresses" javaType="list" ofType="com.scy.domain.Address">
+        <collection property="addresses" javaType="list" ofType="Address">
             <id property="id" column="address_id"/>
             <result property="street" column="street"/>
             <result property="city" column="city"/>

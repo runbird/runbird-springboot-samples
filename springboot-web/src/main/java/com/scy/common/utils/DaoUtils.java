@@ -34,17 +34,17 @@ public class DaoUtils {
     }
 
     public static <R> R execute(Function<SqlSession, R> function) {
-        SqlSession session = sqlSessionFactory.openSession();
+        SqlSession sqlSession = sqlSessionFactory.openSession();
         try {
-            R apply = function.apply(session);
-            session.commit();
+            R apply = function.apply(sqlSession);
+            sqlSession.commit();
             return apply;
         } catch (Throwable throwable) {
-            session.rollback();
+            sqlSession.rollback();
             System.out.println("execute error");
             throw throwable;
         } finally {
-            session.close();
+            sqlSession.close();
         }
     }
 }
