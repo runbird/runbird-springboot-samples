@@ -27,10 +27,10 @@
         </collection>
     </resultMap>
 
-    <select id="find" resultMap="customerMap">
-        select *
-        from t_customer
-        where id = #{id:INTEGER}
+    <!--    ### Error querying database.  Cause: java.lang.IndexOutOfBoundsException: Index 3 out of bounds for length 3-->
+    <!--    使用了 customerMap 而不是 customerSimpleMap -->
+    <select id="find" resultMap="customerSimpleMap">
+        SELECT * FROM t_customer WHERE id = #{id:INTEGER}
     </select>
 
     <select id="findWithAddress" resultMap="customerMap">
@@ -41,7 +41,7 @@
         where c.id = #{id:INTEGER}
     </select>
 
-    <select id="findByOrderId" resultMap="customerMap">
+    <select id="findByOrderId" resultMap="customerSimpleMap">
         select *
         from t_customer as c
                  join t_order as t

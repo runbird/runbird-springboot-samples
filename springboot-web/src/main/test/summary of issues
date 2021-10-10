@@ -1,0 +1,48 @@
+org.apache.ibatis.exceptions.PersistenceException:
+### Error querying database.  Cause: java.lang.IndexOutOfBoundsException: Index 3 out of bounds for length 3
+### The error may exist in mapper/CustomerMapper.xml
+### The error may involve com.scy.mapper.CustomerMapper.find
+### The error occurred while handling results
+### SQL: SELECT * FROM t_customer WHERE id = ?
+### Cause: java.lang.IndexOutOfBoundsException: Index 3 out of bounds for length 3
+解决原因：实体类因为使用了 @Data @builder 类并没有提供构造函数，@Data并不能自动生成构造函数，查了资料，在类似添加了两个构造函数注解，问题解决。
+
+
+### Error querying database.  Cause: java.lang.IndexOutOfBoundsException: Index 3 out of bounds for length 3
+解决原因： 使用了 customerMap 而不是 customerSimpleMap 
+
+
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '   ' at line 2
+### The error may exist in mapper/CustomerMapper.xml
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: select c.* from t_customer c where c.id = ?    
+### Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '   ' at line 2
+    <select id="find" resultMap="customerSimpleMap">
+        select c.* from t_customer c where c.id = #{id,jdbcType=INTEGER}
+    </select>
+解决方法：可能是空格造成的。。
+    <select id="find" resultMap="customerSimpleMap">
+        SELECT * FROM t_customer WHERE id = #{id:INTEGER}
+    </select>
+
+org.apache.ibatis.exceptions.PersistenceException:
+### Error updating database.  Cause: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'address' in 'class com.scy.domain.Order'
+### The error may exist in mapper/OrderMapper.xml
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: INSERT INTO t_order(address_id, customer_id, create_time)         VALUES (?, ?, ?)
+### Cause: org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'address' in 'class com.scy.domain.Order'
+
+<insert id="save" keyProperty="id" useGeneratedKeys="true">
+    INSERT INTO t_order(address_id, customer_id, create_time)
+    VALUES (#{deliveryAddress.id}, #{address.id}, #{createTime})
+</insert>
+解决方法：#{address.id} 改为 #{customer.id}
+
+<insert id="save" keyProperty="id" useGeneratedKeys="true">
+    INSERT INTO t_order(address_id, customer_id, create_time)
+    VALUES (#{deliveryAddress.id}, #{customer.id}, #{createTime})
+</insert>
+
+

@@ -31,6 +31,6 @@
 
     <insert id="save" keyProperty="id" useGeneratedKeys="true">
         INSERT INTO t_order(address_id, customer_id, create_time)
-        VALUES (#{deliveryAddress.id}, #{address.id}, #{createTime})
+        VALUES (#{deliveryAddress.id}, #{customer.id}, #{createTime})
     </insert>
 </mapper>

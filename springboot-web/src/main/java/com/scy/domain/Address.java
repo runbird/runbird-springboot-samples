@@ -2,6 +2,7 @@ package com.scy.domain;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 类名： Address <br>
@@ -13,6 +14,7 @@ import lombok.Data;
  */
 @Data
 @Builder
+@NoArgsConstructor
 public class Address {
     private long id;
     private String street;

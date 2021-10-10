@@ -2,6 +2,7 @@ package com.scy.domain;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
@@ -15,17 +16,18 @@ import java.math.BigDecimal;
  */
 @Data
 @Builder
+@NoArgsConstructor
 public class OrderItem {
     private long id;
     private Product product;
-    private int amout;
+    private int amount;
     private BigDecimal price;
     private long orderId;
 
-    public OrderItem(long id, Product product, int amout, BigDecimal price, long orderId) {
+    public OrderItem(long id, Product product, int amount, BigDecimal price, long orderId) {
         this.id = id;
         this.product = product;
-        this.amout = amout;
+        this.amount = amount;
         this.price = price;
         this.orderId = orderId;
     }

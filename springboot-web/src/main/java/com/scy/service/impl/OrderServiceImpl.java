@@ -70,7 +70,7 @@ public class OrderServiceImpl implements OrderService {
         BigDecimal totalPrice = new BigDecimal(0);
         for (OrderItem orderItem : orderItems) {
             BigDecimal itemPrices = orderItem.getProduct().getPrice()
-                    .multiply(new BigDecimal(orderItem.getAmout()));
+                    .multiply(new BigDecimal(orderItem.getAmount()));
             orderItem.setPrice(itemPrices);
             totalPrice.add(itemPrices);
         }

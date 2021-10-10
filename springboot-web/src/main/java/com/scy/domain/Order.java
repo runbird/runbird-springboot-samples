@@ -2,9 +2,9 @@ package com.scy.domain;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +18,7 @@ import java.util.List;
  */
 @Data
 @Builder
+@NoArgsConstructor
 public class Order {
     private long id;
     private Customer customer;

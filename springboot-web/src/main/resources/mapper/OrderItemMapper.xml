@@ -5,7 +5,7 @@
 <mapper namespace="com.scy.mapper.OrderItemMapper">
     <resultMap id="orderItemMap" type="com.scy.domain.OrderItem">
         <id property="id" column="id"/>
-        <result property="amout" column="amout"/>
+        <result property="amount" column="amount"/>
         <result property="orderId" column="order_id"/>
         <!--映射OrderItem关联的Product对象，<association>标签用于实现一对一的关联关系-->
         <association property="product" javaType="com.scy.domain.Product">
